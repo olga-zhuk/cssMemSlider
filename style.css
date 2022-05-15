@@ -1,0 +1,52 @@
+ * {
+    margin: 0 auto;
+    background-color: rgba(1, 0, 43);
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    color:azure;
+}
+img {
+    width:100%;
+    border-radius: 3%;
+}
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wrapper {
+    margin:0px auto;
+    overflow: hidden;
+    height: 100hv;
+}
+
+.slider__container {
+    display: flex;
+    margin: 5% 3% 0%;
+ }   
+.slide {
+    display: none;
+    margin: 0% 0% 0% 0%;
+    width:100%;
+}
+.slide-active {
+    display:block;
+}
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    width:35%;
+    margin: -3% 0% 0% 63%;
+}
+.slider__dots-item {
+    display: flex;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: rgb(74, 2, 2);
+}
+.slider__dots-item:hover {
+    background-color:white;
+    cursor:pointer;
+}
