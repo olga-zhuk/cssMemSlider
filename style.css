@@ -1,14 +1,13 @@
  * {
-    margin: 0 auto;
+    margin: 0;
     background-color: rgba(1, 0, 43);
     font-family: 'Indie Flower', cursive;
     font-size: 18px;
     color:azure;
 }
 img {
-    width:100%;
     border-radius: 3%;
-}
+} 
 body {
     display: flex;
     flex-wrap: wrap;
@@ -16,34 +15,61 @@ body {
 }
 .wrapper {
     margin:0px auto;
-    overflow: hidden;
-    height: 100hv;
+}
+.slider__container-inner {
+    margin: 0 3%;
+    
 }
 .slider__container {
     display: flex;
-    margin: 5% 3% 0%;
- }   
+    margin: 6% 0% 0% 0%;
+    width: 800px; 
+    height: 700px; 
+    align-items: center;
+    justify-content: center;
+}   
 .slide {
     display: none;
-    margin: 0% 0% 0% 0%;
     width:100%;
-    clip-path: circle(0% at 0 50%);
+   
 }
 .slide-active {
-    display:block;
-    clip-path: circle(150% at 0 50%);
+    display: flex;
+    margin: 0px 0px;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: bounce; 
+    animation-duration: .9s; 
+    animation-fill-mode: both;
+    
+}
+@keyframes bounce { 
+  0% {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .slider__dots {
     display: flex;
     justify-content: flex-end;
     background-color: transparent;
-    width:35%;
-    margin:0;
+    width:30%;
+    margin:2% 0%;
 }
 .slider__dots-item {
     display: flex;
     width: 15px;
     height: 15px;
+    margin: 2px 5px;
     border-radius: 100%;
     background-color: rgb(74, 2, 2);
 }
@@ -52,14 +78,13 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    margin: 0% 3%;
-    /* flex-wrap: wrap; */
+    /* margin: 0% 3%; */
 }
 .slider__dots-item:hover {
     background-color:white;
     cursor:pointer;
-    transform: scale(1.2);
-    transition: all .8s;
+    transition: all .6s;
+    
 }
 .active {
     display: flex;
@@ -75,15 +100,56 @@ body {
 }
 .caption {
     display: none;
-    text-align: start;
-    margin: 0;
+    margin: 0px 0px;
+    text-align: left;
+   
 }
 .caption__container {
-    margin: 0px 0px;
-    text-align: start;
+    margin: 0px;
 }
 .caption-active {
-    display: block;
-    text-align: start;
-    margin:0;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    transform: scale(1.1);
+    transition: all .6s;
+
+    background-color: transparent;
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
 }
+ @keyframes slidein {
+    from {
+      margin-left: 50%;
+      width: 200%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  } 
+@media (max-width: 875px) {
+    img {
+        width:100%;
+        margin: 0% 3%;
+    } 
+}
+@media (max-width: 770px) {
+    img {
+        width:100%;
+    } 
+    .container {
+        align-items: center;
+        flex-direction: row-reverse;
+        margin: 0% 3%;
+        flex-wrap: wrap; 
+        }
+    .slider__dots {
+        width: 36%;
+        margin: 2% 33%;
+    }
+  }
