@@ -2,7 +2,7 @@
     margin: 0 auto;
     background-color: rgba(1, 0, 43);
     font-family: 'Indie Flower', cursive;
-    font-size: 24px;
+    font-size: 18px;
     color:azure;
 }
 img {
@@ -19,7 +19,6 @@ body {
     overflow: hidden;
     height: 100hv;
 }
-
 .slider__container {
     display: flex;
     margin: 5% 3% 0%;
@@ -28,16 +27,18 @@ body {
     display: none;
     margin: 0% 0% 0% 0%;
     width:100%;
+    clip-path: circle(0% at 0 50%);
 }
 .slide-active {
     display:block;
+    clip-path: circle(150% at 0 50%);
 }
 .slider__dots {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: transparent;
     width:35%;
-    margin: -3% 0% 0% 63%;
+    margin:0;
 }
 .slider__dots-item {
     display: flex;
@@ -46,7 +47,43 @@ body {
     border-radius: 100%;
     background-color: rgb(74, 2, 2);
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin: 0% 3%;
+    /* flex-wrap: wrap; */
+}
 .slider__dots-item:hover {
     background-color:white;
     cursor:pointer;
+    transform: scale(1.2);
+    transition: all .8s;
+}
+.active {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 4px solid rgb(74, 2, 2);
+    background: transparent;
+}
+.active:hover {
+    border: 4px solid white;
+    background: transparent;
+}
+.caption {
+    display: none;
+    text-align: start;
+    margin: 0;
+}
+.caption__container {
+    margin: 0px 0px;
+    text-align: start;
+}
+.caption-active {
+    display: block;
+    text-align: start;
+    margin:0;
 }
