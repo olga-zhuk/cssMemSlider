@@ -11,7 +11,6 @@ img {
 body {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 .wrapper {
     margin:0px auto;
@@ -64,6 +63,7 @@ body {
     background-color: transparent;
     width:30%;
     margin:2% 0%;
+    cursor:pointer;
 }
 .slider__dots-item {
     display: flex;
@@ -144,7 +144,7 @@ body {
         justify-content: center;
     }
 }
-@media (max-width: 770px) {
+@media (max-width: 768px) {
     .container {
         align-items: center;
         flex-direction: row-reverse;
