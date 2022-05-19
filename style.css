@@ -1,0 +1,266 @@
+ * {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgba(1, 0, 43);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1rem;
+    color:azure;
+}
+body {
+    min-height: 100vh;
+}
+.wrapper {
+    max-width: 52rem;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.wrapper > input {
+	display: none;
+}
+
+.slider__container {
+    width: inherit; 
+    margin: 1rem 1rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    transition: all 0.5s ease;
+	-webkit-box-shadow: 0 0 1.2rem rgba(0, 0, 0, .5);
+	-moz-box-shadow: 0 0 1.2rem rgba(0, 0, 0, .5);
+	-o-box-shadow: 0 0 1.2rem rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1.2rem rgba(0, 0, 0, .5);
+}   
+.slides {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.slide__picture {
+    margin:0;
+    width: 100%;
+    height: 35rem;
+    object-fit: contain;   
+    border-radius: 2rem;
+    opacity: 0;
+    display: none;
+}
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.slider__dots {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+label {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color:transparent;
+}
+.wrapper label:hover > .label {
+    border: 0.25rem solid white;
+    background-color: white;
+}
+
+.wrapper label:active > .label {
+    border: 0.25rem solid white;
+    background-color: white;
+}
+
+.slider__dots:hover + .captain__container .description {
+    color: rgb(141, 15, 15);
+}
+.label{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 0.25rem solid rgb(74, 2, 2);
+    background-color: rgb(74, 2, 2);
+    transition: all 0.5s ease;
+}
+.label:hover {
+    border: 0.25rem solid white;
+    background-color: white;
+}
+.description {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    height: inherit;
+    overflow: hidden;
+    font-size: 2rem;
+    display: none; 
+    opacity: 0;
+    transition: all 0.5s ease; 
+    background-color: transparent;
+}
+
+#slide1:checked ~ .container .slider__dots .label-wrapper > .label1,
+#slide2:checked ~ .container .slider__dots .label-wrapper > .label2,
+#slide3:checked ~ .container .slider__dots .label-wrapper > .label3,
+#slide4:checked ~ .container .slider__dots .label-wrapper > .label4,
+#slide5:checked ~ .container .slider__dots .label-wrapper > .label5,
+#slide6:checked ~ .container .slider__dots .label-wrapper > .label6,
+#slide7:checked ~ .container .slider__dots .label-wrapper > .label7 {
+    background-color: transparent;
+}
+
+#slide1:checked ~ .container .captain__container > .d-slide1,
+#slide2:checked ~ .container .captain__container > .d-slide2,
+#slide3:checked ~ .container .captain__container > .d-slide3,
+#slide4:checked ~ .container .captain__container > .d-slide4,
+#slide5:checked ~ .container .captain__container > .d-slide5,
+#slide6:checked ~ .container .captain__container > .d-slide6,
+#slide7:checked ~ .container .captain__container > .d-slide7 {
+	opacity: 1;
+    display: block;
+    animation-name: bounce; 
+    animation-duration: .9s; 
+    animation-fill-mode: both; 
+}
+
+@keyframes bounce { 
+    0% {
+      opacity: 0;
+      transform: translateX(70px);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  #slide1:checked ~ .slider__container .slide1 > .slide__picture,
+  #slide2:checked ~ .slider__container .slide2 > .slide__picture,
+  #slide3:checked ~ .slider__container .slide3 > .slide__picture,
+  #slide4:checked ~ .slider__container .slide4 > .slide__picture,
+  #slide5:checked ~ .slider__container .slide5 > .slide__picture,
+  #slide6:checked ~ .slider__container .slide6 > .slide__picture,
+  #slide7:checked ~ .slider__container .slide7 > .slide__picture {
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    display: block;
+    opacity: 1;
+  }
+ @keyframes slidein {
+    from {
+      margin-left: 0%;
+      width: 100%;
+    }
+  
+    to {
+      margin-left: 2%;
+      width: 100%;
+    }
+  } 
+
+@media (max-width: 768px) {
+    .wrapper {
+        max-width: 32rem;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0 2rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container {
+        align-items: center;
+        flex-direction: row-reverse;
+        margin: 0% 3%;
+        flex-wrap: wrap; 
+    }
+   
+    .slider__container {
+        border-radius: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .slides {
+        border-radius: 0.5rem;       
+    }
+
+    .slider__picture {
+        border-radius: 0.5rem;
+        height: 222rem;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+    }
+
+    .slider__dots {
+        margin: 0 auto;
+    }
+
+    label {
+        width: 2.0rem;
+        height: 2.0rem;
+    }
+
+    .label {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+    
+
+
+/* animation: changePosText 0.7s ease-out 1 normal 0s forwards, changeRotate 0.3s linear 1 normal 0.7s;
+
+
+@keyframes changePosText {
+    0% {transform: translateX(-30rem);}
+    30% {transform: translateX(-15rem);}
+    50% {transform: translateX(0rem);}
+    70% {transform: translateX(10rem);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes changeRotate {
+    80%{transform: rotate(5deg);}
+    85%{transform: rotate(-5deg);}
+    90%{transform: rotate(5deg);}
+    95%{transform: rotate(-5deg);}
+    100%{transform: rotate(0deg);}
+}
+        */
+
+/* animation: changePos 0.7s ease 1 normal 0s forwards, changeRotate 0.7s linear 1 normal 0s forwards;
+@keyframes changePos {
+    from {opacity: 0; transform: translate(0rem, -10rem);}
+    to {opacity: 1; transform: translate(0, 0);}
+} */
